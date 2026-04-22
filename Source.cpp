@@ -1,6 +1,6 @@
 /*
 Sam Schneider
-Introducory Programming
+Introductory Programming
 April 23, 2026
 P14-1
 */
