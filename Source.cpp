@@ -18,14 +18,17 @@ Gets average of array values
 @return - Average value of array values (0 if size == 0)
 */
 double getAverage(double array[], int size) {
-	double sum = 0;
-
-	for (int i = 0; i < size; i++) {
-		sum = sum + array[i];
-	}
 
 	if (size == 0) {
 		return 0;
+	}
+
+	double sum = 0;
+	double* pointer = array;
+
+	for (int i = 0; i < size; i++) {
+		sum = sum + *pointer;
+		pointer++;
 	}
 
 	return sum / static_cast<double>(size);
@@ -45,11 +48,13 @@ double* getMaximum(double array[], int size) {
 	}
 
 	double* max = &array[0];
+	double* pointer = array;
 
 	for (int i = 0; i < size; i++) {
-		if (*max < array[i]) {
-			max = &array[i];
+		if (*max < *pointer) {
+			max = pointer;
 		}
+		pointer++;
 	}
 
 	return max;
@@ -69,11 +74,13 @@ double* getMinimum(double array[], int size) {
 	}
 
 	double* min = &array[0];
+	double* pointer = array;
 
 	for (int i = 0; i < size; i++) {
-		if (*min > array[i]) {
-			min = &array[i];
+		if (*min > *pointer) {
+			min = pointer;
 		}
+		pointer++;
 	}
 
 	return min;
